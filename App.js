@@ -7,6 +7,14 @@ export default function App() {
   const [radius,setRadius] =useState('');
   const [height,setHeight] =useState('');
   const [volume,setvolume] =useState('');
+  function calcButton(){
+    
+
+    let localvolume = 1.0/3.0*Math.pow(radius,2)*Math.PI * height;
+    setvolume(localvolume);
+
+    console.log(localvolume)
+  }
 
 
   return (
@@ -22,14 +30,10 @@ export default function App() {
     <TextInput
     style={styles.inputField}
     onChangeText= {(height) => setHeight(height)}></TextInput>
-      <Text>Eredény</Text>
-      <StatusBar style="auto" />
-    <TextInput
-    style={styles.inputField}
-    onChangeText= {(volume) => setvolume(volume)}></TextInput>
+     
+   
 
-<TouchableHighlight
-style={styles.button}
+<TouchableHighlight style={styles.button}onPress={calcButton}
 
 ><Text>Számít</Text></TouchableHighlight>
 
